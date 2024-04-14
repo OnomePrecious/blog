@@ -9,8 +9,6 @@ public class SignInRequest {
     private String lastName;
     private String username;
     private String password;
-    @Id
-    private String id;
 
 
 }

@@ -1,4 +1,4 @@
-package africa.semicolon.myBlogApp.util.utils;
+package africa.semicolon.myBlogApp.util;
 
 
 import africa.semicolon.myBlogApp.data.models.Comment;
@@ -16,19 +16,17 @@ public class Mappers {
      public static SignInResponse mapUserSignInResponse(User user){
         SignInResponse signInResponse = new SignInResponse();
         signInResponse.setFirstname(user.getFirstName());
-        signInResponse.setLastname(user.getUsername());
+        signInResponse.setUsername(user.getUsername());
+        signInResponse.setLastname(user.getLastName());
          return signInResponse;
      }
-    public static void mapUserRequestToLogIn(LogInRequest logInRequest, User user){
-        user.setUsername(logInRequest.getUsername());
-        user.setPassword(logInRequest.getPassword());
-    }
        public static LogInResponse mapUserLogInResponse(User user, LogInResponse logInResponse){
         logInResponse.setUsername(user.getUsername());
         logInResponse.setUserPosts(user.getPosts());
            return logInResponse;
        }
        public static void mapUserPostRequest(PostRequest postRequest, Post post){
+        post.setPosterUsername(postRequest.getUsername());
         post.setTitle(postRequest.getTitle());
         post.setContent(postRequest.getContent());
         post.setDateCreated(postRequest.getTimeOfPostCreated());

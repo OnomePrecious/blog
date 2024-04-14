@@ -12,7 +12,7 @@ import africa.semicolon.myBlogApp.exception.UsernameAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static africa.semicolon.myBlogApp.util.utils.Mappers.*;
+import static africa.semicolon.myBlogApp.util.Mappers.*;
 
 @Service
 public class UserServiceImpl implements UserService{

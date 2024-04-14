@@ -13,8 +13,8 @@ import africa.semicolon.myBlogApp.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static africa.semicolon.myBlogApp.util.utils.Mappers.mapCommentRequestToComment;
-import static africa.semicolon.myBlogApp.util.utils.Mappers.mapCommentRequestToResponse;
+import static africa.semicolon.myBlogApp.util.Mappers.mapCommentRequestToComment;
+import static africa.semicolon.myBlogApp.util.Mappers.mapCommentRequestToResponse;
 
 
 @Service

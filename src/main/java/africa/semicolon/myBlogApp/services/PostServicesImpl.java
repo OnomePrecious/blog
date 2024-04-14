@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static africa.semicolon.myBlogApp.util.utils.Mappers.*;
+import static africa.semicolon.myBlogApp.util.Mappers.*;
 
 
 @Service

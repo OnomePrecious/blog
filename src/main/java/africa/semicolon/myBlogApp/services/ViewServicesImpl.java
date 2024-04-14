@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static africa.semicolon.myBlogApp.util.utils.Mappers.mapViewRequestToResponse;
+import static africa.semicolon.myBlogApp.util.Mappers.mapViewRequestToResponse;
 
 
 @Service
