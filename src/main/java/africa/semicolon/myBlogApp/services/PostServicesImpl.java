@@ -1,5 +1,6 @@
 package africa.semicolon.myBlogApp.services;
 import africa.semicolon.myBlogApp.data.models.Post;
+import africa.semicolon.myBlogApp.data.models.User;
 import africa.semicolon.myBlogApp.data.repository.PostRepository;
 import africa.semicolon.myBlogApp.data.repository.UserRepository;
 import africa.semicolon.myBlogApp.dto.PostRequest;
@@ -30,10 +31,10 @@ public class PostServicesImpl implements PostServices{
         mapUserPostRequest(postRequest, post);
         postRepository.save(post);
         userRepository.save(user);
-        return mapUserPostToResponse(post);
+        return mapPostToResponse(post);
     }
 
-    @Override
+   @Override
     public PostResponse deletePostBy(PostRequest postRequest) {
         var user = userRepository.findUserByUsername(postRequest.getUsername());
         var post = postRepository.findPostByContent(postRequest.getContent());
@@ -43,7 +44,7 @@ public class PostServicesImpl implements PostServices{
         postRepository.delete(post);
         user.setPosts(postRepository.findPostByPosterUsername(post.getPosterUsername()));
         userRepository.save(user);
-        return mapUserPostToResponse(post);
+        return mapPostToResponse(post);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class PostServicesImpl implements PostServices{
         if(!user.isLoggedIn()) throw new UserNotFoundException("You have to log in first");
         user.setPosts(postRepository.findPostByPosterUsername(updatePostRequest.getUsername()));
         userRepository.save(user);
-            return mapUserPostToResponse(post);
+            return mapPostToResponse(post);
     }
 
     @Override

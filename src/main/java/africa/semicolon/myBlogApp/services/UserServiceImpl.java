@@ -50,6 +50,7 @@ private boolean isAValidUser(User user){
     }
     @Override
     public User findUserByUsername(String username) {
+
         return userRepository.findUserByUsername(username);
     }
 

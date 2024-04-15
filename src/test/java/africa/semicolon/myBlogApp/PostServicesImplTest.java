@@ -108,6 +108,7 @@ class PostServicesImplTest {
             postRequest.setUsername("My name");
             postRequest.setContent("My content");
             postRequest.setTitle("My title");
+            postRequest.setPostId("My id");
             postRequest.setTimeOfPostCreated(LocalDateTime.now());
             postRequest1.setUsername("My name");
             postRequest1.setContent("My second content");
@@ -143,7 +144,6 @@ class PostServicesImplTest {
         updatePostRequest.setUsername("My name");
         updatePostRequest.setContent("My content");
         updatePostRequest.setTitle("This title");
-        updatePostRequest.setDateUpdated(LocalDateTime.now());
         postServices.updatePost(updatePostRequest);
         assertEquals("This title", postRepository.findPostByContent("My content").getTitle());
 

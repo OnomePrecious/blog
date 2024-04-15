@@ -71,7 +71,7 @@ public class BlogControllers {
             return new ResponseEntity<>(new ApiResponse(false, e.getMessage()), BAD_REQUEST);
         }
     }
-       @PostMapping("update_post")
+       @PostMapping("/update_post")
                public ResponseEntity<?> updatePost(@RequestBody UpdatePostRequest updatePostRequest){
         try {
             var result = postServices.updatePost(updatePostRequest);
@@ -81,7 +81,7 @@ public class BlogControllers {
         }
 
    }
-   @DeleteMapping("delete_post")
+   @DeleteMapping("/delete_post")
     public ResponseEntity<?> deletePost(@RequestBody PostRequest postRequest){
         try{
             var result = postServices.deletePostBy(postRequest);
@@ -91,7 +91,7 @@ public class BlogControllers {
         }
    }
 
-@PostMapping("commentOnPost")
+@PostMapping("/commentOnPost")
     public ResponseEntity<?> commentOnAPost(@RequestBody CommentRequest commentRequest){
         try {
             var result = commentServices.commentOnAPost(commentRequest);

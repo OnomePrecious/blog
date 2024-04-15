@@ -6,6 +6,8 @@ import africa.semicolon.myBlogApp.data.models.Post;
 import africa.semicolon.myBlogApp.data.models.User;
 import africa.semicolon.myBlogApp.dto.*;
 
+import java.time.LocalDateTime;
+
 public class Mappers {
     public static void mapUserRequestToSignIn(SignInRequest signInRequest, User user){
         user.setFirstName(signInRequest.getFirstName());
@@ -29,15 +31,15 @@ public class Mappers {
         post.setPosterUsername(postRequest.getUsername());
         post.setTitle(postRequest.getTitle());
         post.setContent(postRequest.getContent());
-        post.setDateCreated(postRequest.getTimeOfPostCreated());
+        post.setDateCreated(LocalDateTime.now());
        }
 
-       public static PostResponse mapUserPostToResponse(Post post){
+       public static PostResponse mapPostToResponse(Post post){
         PostResponse postResponse = new PostResponse();
         postResponse.setUsername(post.getPosterUsername());
         postResponse.setTitle(post.getTitle());
         postResponse.setContent(post.getContent());
-        postResponse.setDateCreated(post.getDateCreated());
+        postResponse.setDateCreated(LocalDateTime.now());
            return postResponse;
        }
     public static void mapCommentRequestToComment(CommentRequest commentRequest, Comment comment){
@@ -52,15 +54,14 @@ public class Mappers {
         return commentResponse;
     }
     public static void mapUpdateRequestToPost(UpdatePostRequest updatePostRequest, Post post){
-        post.setDateCreated(updatePostRequest.getDateUpdated());
         post.setPosterUsername(updatePostRequest.getUsername());
         post.setTitle(updatePostRequest.getTitle());
-        post.setDateCreated(updatePostRequest.getDateUpdated());
+
     }
     public static ViewResponse mapViewRequestToResponse(ViewRequest viewRequest){
         ViewResponse viewResponse = new ViewResponse();
         viewResponse.setContentViewed(viewRequest.getContentToView());
-        viewResponse.setTimeOfView(viewRequest.getTimeOfView());
+        viewResponse.setTimeOfView(LocalDateTime.now());
         viewResponse.setViewerUsername(viewRequest.getViewerUsername());
         return viewResponse;
     }
